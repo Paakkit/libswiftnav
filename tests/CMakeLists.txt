@@ -50,6 +50,7 @@ else (CMAKE_CROSSCOMPILING)
       check_cnav.c
       check_glo_decoder.c
       check_cn0_estimator.c
+      check_cn0_filters.c
     )
 
     target_link_libraries(test_libswiftnav ${TEST_LIBS})
