@@ -26,5 +26,6 @@ Suite* track_test_suite(void);
 Suite* cnav_test_suite(void);
 Suite* glo_decoder_test_suite(void);
 Suite* cn0_suite(void);
+Suite* cn0_filter_suite(void);
 
 #endif /* CHECK_SUITES_H */

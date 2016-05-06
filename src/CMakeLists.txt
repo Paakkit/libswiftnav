@@ -47,6 +47,10 @@ set(libswiftnav_SRCS
   bit_sync.c
   cnav_msg.c
   nav_msg_glo.c
+  cn0_est_bl.c
+  cn0_est_snv.c
+  filter_bw2.c
+  filter_lp1.c
   ${plover_SRCS}
 
   CACHE INTERNAL ""
