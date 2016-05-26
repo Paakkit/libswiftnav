@@ -53,9 +53,15 @@ void lp1_filter_init(lp1_filter_t *f,
 {
   memset(f, 0, sizeof(*f));
 
-  float Tw0 = (2 * M_PI * cutoff_freq) / loop_freq;
-  f->b = Tw0 / (Tw0 + 2.f);
-  f->a = (Tw0 - 2.f) / (Tw0 + 2.f);
+  float Ts = 1.f/loop_freq;
+  float wp = 10.f*cutoff_freq*2.f*M_PI*Ts;
+  float Op = 1.f/(M_PI*Ts)*tanf(wp/2.f);
+  float Ap = powf(10.f,-3.f/20.f);
+  float Oc = Op/sqrtf((1.f/(Ap*Ap-1.f)));
+  float tmp = Oc*Ts;
+
+  f->b = -tmp / (2.f-tmp);
+  f->a = (-2.f-tmp) / (2.f-tmp)
 
   /* Set up initial filter state so that stable input produces stable output */
   f->yn = initial;
