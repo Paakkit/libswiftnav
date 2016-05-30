@@ -61,7 +61,7 @@ void lp1_filter_init(lp1_filter_t *f,
   float tmp = Oc*Ts;
 
   f->b = -tmp / (2.f-tmp);
-  f->a = (-2.f-tmp) / (2.f-tmp)
+  f->a = (-2.f-tmp) / (2.f-tmp);
 
   /* Set up initial filter state so that stable input produces stable output */
   f->yn = initial;
